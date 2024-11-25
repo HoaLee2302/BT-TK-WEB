@@ -1,0 +1,21 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tính Lãi Đơn</title>
+</head>
+<body>
+	<h1>Tính Lãi Đơn Ngân Hàng</h1>
+	<script>
+		function tinhLaiDon(SoTienVay, LaiSuat, SoNam) {
+			const SoTienPhaiTra = SoTienVay + (SoTienVay * LaiSuat * SoNam);
+			return SoTienPhaiTra;
+		}
+		const SoTienVay = parseFloat(prompt("Nhập số tiền vay (P): "));
+		const LaiSuat = parseFloat(prompt("Nhập lãi suất hàng năm (r) dưới dạng thập phân (ví dụ 1% = 0.01): "));
+		const SoNam = parseInt(prompt("Nhập số năm vay (t): "));
+		const KetQua = tinhLaiDon(SoTienVay, LaiSuat, SoNam);
+		alert(`Số tiền bạn phải trả sau ${SoNam} năm là: ${KetQua.toFixed(2)} đồng.`);
+	</script>
+</body>
+</html>

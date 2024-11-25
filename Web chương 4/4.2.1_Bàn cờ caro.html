@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bàn Cờ Caro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 5px;
+            margin-top: 20px;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .board div:nth-child(odd) {
+            background-color: lightgray;
+        }
+        .board div:nth-child(even) {
+            background-color: #e0e0e0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="hideBoard()">Hide</button>
+        <button onclick="showBoard()">Show</button>
+        <button onclick="toggleBoard()">Toggle</button>
+    </div>
+    <div id="board" class="board"></div>
+    <script>
+        const board = document.getElementById("board");
+        let currentPlayer = 'X';
+
+        function createBoard() {
+            for (let i = 0; i < 100; i++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                cell.onclick = function () {
+                    if (!cell.textContent) {
+                        if (currentPlayer === 'X') {
+                            cell.textContent = 'X';
+                            cell.style.color = 'red'; 
+                            currentPlayer = 'O';
+                        } else {
+                            cell.textContent = 'O';
+                            cell.style.color = 'blue'; 
+                            currentPlayer = 'X';
+                        }
+                    }
+                };
+                board.appendChild(cell);
+            }
+        }
+
+        function hideBoard() {
+            board.classList.add("hidden");
+        }
+
+        function showBoard() {
+            board.classList.remove("hidden");
+        }
+
+        function toggleBoard() {
+            board.classList.toggle("hidden");
+        }
+
+        createBoard();
+    </script>
+</body>
+</html>

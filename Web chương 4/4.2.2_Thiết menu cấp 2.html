@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menu</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		.menu_theloai {
+            width: 150px;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			padding: 5px;
+			margin: 5px 0;
+			background-color: transparent;
+			border: 1px solid #000;
+			border-radius: 5px;
+		}
+		.menu_nhom {
+            width: 140px;
+			display: none;
+			padding-left: 14px;
+			background-color: #000;
+			border-radius: 5px;
+		}
+		.menu_nhom a {
+            width: 140px;
+			display: block;
+			margin: 5px 0;
+			text-decoration: none;
+			color: white;
+		}
+		.menu_nhom a:hover {
+			color: #ffcc00;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div class="menu_theloai">Đời sống</div>
+		<div class="menu_nhom">
+			<a href="?idTL=15">Hoa hậu</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=16">Nghệ sĩ</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=17">Mỹ thuật</a>
+		</div>
+	</div>
+	<div>
+		<div class="menu_theloai">Giải trí</div>
+		<div class="menu_nhom">
+			<a href="?idTL=18">Âm nhạc</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=19">Thời trang</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=20">Điện ảnh</a>
+		</div>
+	</div>
+	<div>
+		<div class="menu_theloai">Thể thao</div>
+		<div class="menu_nhom">
+			<a href="?idTL=21">Bóng đá</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=22">Tennis</a>
+            <hr style="border: none; border-top: 0.5px dashed white;">
+			<a href="?idTL=23">Các môn khác</a>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			$(".menu_nhom").hide();
+			$(".menu_theloai").click(function () {
+				$(this).next(".menu_nhom").slideToggle();
+			});
+		});
+	</script>
+</body>
+</html>
